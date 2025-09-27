@@ -37,11 +37,20 @@ const carrito = []
 Variables del DOM
 */
 
-const barraBusqueda = document.getElementById("barra-busqueda")
+const barraBusqueda = document.getElementById("barra-busqueda");
 
 const contenedorProductos = document.getElementById("contenedor-productos");
 
-const contenedorCarrito = document.getElementById("contenedor-carrito")
+const contenedorCarrito = document.getElementById("contenedor-carrito");
+
+const formAgregar = document.getElementById("form-agregar");
+
+const inputNombre = document.getElementById("input-nombre");
+
+const inputPrecio = document.getElementById("input-precio");
+
+const inputImg = document.getElementById("input-img");
+
 
 /* 
 Escuchadores de eventos 
@@ -49,6 +58,28 @@ Escuchadores de eventos
 
 barraBusqueda.addEventListener("keyup", filtrarProducto)
 
+formAgregar.addEventListener("submit", function(value){
+    value.preventDefault();
+
+    const nuevoLibro = {
+        id: librosTienda.length + 1,
+        nombre: inputNombre.value,
+        precio: parseInt(inputPrecio.value),
+        ruta_img: inputImg.value
+    }
+
+    librosTienda.push(nuevoLibro),
+
+    mostrarLista(librosTienda)
+
+    inputNombre.value = ""
+    inputPrecio.value = ""
+    inputImg.value = ""
+})
+
+/*
+Funciones  
+*/
 
 function mostrarLista(array){
     let htmlProductos = "";
