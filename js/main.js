@@ -51,6 +51,7 @@ const inputPrecio = document.getElementById("input-precio");
 
 const inputImg = document.getElementById("input-img");
 
+const BttnOrdenar = document.getElementById("bttn-ordenar")
 
 /* 
 Escuchadores de eventos 
@@ -77,6 +78,9 @@ formAgregar.addEventListener("submit", function(value){
     inputImg.value = ""
 })
 
+BttnOrdenar.addEventListener("click", ordenarLibros
+)
+
 /*
 Funciones  
 */
@@ -86,10 +90,10 @@ function mostrarLista(array){
     array.forEach(libro=>{ 
         htmlProductos += `
         <div class="card-producto">
-            <img src="${libro.ruta_img}" alt="${libro.nombre}">
-            <h3>${libro.nombre}</h3>
-            <p>${libro.precio}$</p>
-            <button onclick="agregarACarrito(${libro.id})">Agregar al carrito</button>
+            <img class ="img-card" src="${libro.ruta_img}" alt="${libro.nombre}">
+            <h3 class = "text-card">${libro.nombre}</h3>
+            <p >${libro.precio}$</p>
+            <a class="bttn-card" onclick="agregarACarrito(${libro.id})">Agregar al carrito</a>
         </div>
         `
     })
@@ -122,6 +126,17 @@ function filtrarProducto() {
     console.log(productoFiltrado);
     
     mostrarLista(productoFiltrado);
+}
+
+function ordenarLibros(){
+    const librosOrdenados = [...librosTienda];
+
+    librosOrdenados.sort((a, b) =>
+        (a.nombre.toLowerCase() > b.nombre.toLowerCase()) -
+        (a.nombre.toLowerCase() < b.nombre.toLowerCase())
+    );
+
+    mostrarLista(librosOrdenados);
 }
 
 function eliminarDelCarrito(libroCarritoId) {

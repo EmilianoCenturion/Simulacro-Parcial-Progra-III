@@ -1,14 +1,24 @@
+body {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    background-color:darkslategray;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 .card-producto img{
     width: 100px;
 }
 
 .card-producto{
     border: 2px solid;
-    padding: 5px;
+    padding: 10px;
     width: 200px;
     display: flex;
     align-items: center;
     flex-direction: column;
+    text-align: center;
+    margin: 10px;
+    background-color:darkseagreen;
 }
 
 #contenedor-productos{
@@ -16,6 +26,7 @@
     flex-wrap: wrap; 
     align-items: center;
     justify-content: center;
+    margin-left: 50px;
 }
 
 #contenedor-carrito{
@@ -25,3 +36,12 @@
     justify-content: left;
 }
 
+#form-agregar {
+    text-align: center;
+}
+
+.bttn-card {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
