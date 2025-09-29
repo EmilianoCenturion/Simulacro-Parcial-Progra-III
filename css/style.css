@@ -21,6 +21,11 @@ body {
     background-color:darkseagreen;
 }
 
+.aside {
+    align-items: center;
+}
+
+
 #contenedor-productos{
     display: flex;
     flex-wrap: wrap; 
@@ -36,12 +41,40 @@ body {
     justify-content: left;
 }
 
-#form-agregar {
+aside {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
     text-align: center;
+    margin-top: 20px;
+    background-color: bisque;
+
+}
+
+#form-agregar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    gap: 7px;
+    border-style:double;
+    padding: 7px;
+}
+
+#form-agregar button {
+    background-color:gray;
+    color: white;
+    cursor: pointer;
 }
 
 .bttn-card {
     cursor: pointer;
     background-color: black;
     color: white;
+}
+
+#bttn-ordenar {
+    text-align: center;
+    margin-bottom: 10px;
 }
